@@ -4,7 +4,10 @@
     {
       "src": "Backend/APP/main.py",
       "use": "@vercel/python",
-      "config": { "projectDir": "Backend" }
+      "config": {
+        "maxLambdaSize": "50mb",
+        "includeFiles": ["Backend/APP/**/*.py"]
+      }
     }
   ],
   "routes": [
