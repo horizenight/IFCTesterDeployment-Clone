@@ -3,24 +3,16 @@
   "builds": [
     {
       "src": "Backend/APP/main.py",
-      "use": "@vercel/python",
-      "config": { "projectDir": "Backend" }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "Backend/APP/main.py"
-    },
     {
       "src": "/(.*)",
       "dest": "Backend/APP/main.py"
     }
   ],
-  "functions": {
-    "Backend/APP/main.py": {
-      "memory": 1024,
-      "maxDuration": 60
-    }
+  "env": {
+    "PYTHONPATH": "/var/task/Backend"
   }
 }
