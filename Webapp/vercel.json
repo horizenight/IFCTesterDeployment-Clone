@@ -4,16 +4,23 @@
     {
       "src": "Backend/APP/main.py",
       "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "50mb",
-        "includeFiles": ["Backend/APP/**/*.py"]
-      }
+      "config": { "projectDir": "Backend" }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "Backend/APP/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "Backend/APP/main.py"
     }
-  ]
+  ],
+  "functions": {
+    "Backend/APP/main.py": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  }
 }
