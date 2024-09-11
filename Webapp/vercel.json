@@ -2,12 +2,12 @@
   "version": 2,
   "builds": [
     {
-      "src": "Backend/App/main.py",
+      "src": "Backend/APP/main.py",
       "use": "@vercel/python",
-      "config": { "runtime": "python3.9", "maxLambdaSize": "15mb" }
+      "config": { "projectDir": "Backend" }
     }
   ],
-  "routes": [
+ "routes": [
     {
       "src": "/api/ids/(.*)",
       "dest": "Backend/App/main.py"
@@ -16,6 +16,5 @@
       "src": "/(.*)",
       "dest": "Backend/App/main.py"
     }
-  ],
-  "installCommand": "pip install -r Backend/requirements.txt"
+  ]
 }
